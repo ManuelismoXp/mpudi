@@ -6,23 +6,46 @@
 	{
 		private $rotas;
 
+		/**
+		 * Metódo construtor
+		 * @author Lukau Garcia <lukau.dev@gmail.com>
+		 * @return $rotas
+		 */
 		public function __construct(array $rotas)
 		{
-			$this->rotas = $rotas;
+			$this->altRota($rotas);
 			$this->correr();
 		}
 
 		/**
-		 * Metódo que altera a rota
+		 * Metódo que altera recontroi a url
 		 * @author Lukau Garcia <lukau.dev@gmail.com>
-		 * @return 
+		 * @return
 		 */
 		private function altRota($rotas)
 		{
 			foreach ($rotas as $rota) {
 				$rotaExplode = explode('@', $rota[1]);
-				$r = [$route[0]$rotaExplode[0]$explo]
+				$r = [$rota[0], $rotaExplode[0], $rotaExplode[1]];
+				$novaRotas[] = $r;
 			}
+			$this->rotas = $novaRotas;
+		}
+
+		/**
+		 * Metódo que pega as requisições get que são envidas para o controller
+		 * @author Lukau Garcia <lukau.dev@gmail.com>
+		 * @return
+		 */
+		private function pegaRequisicao(){
+			$obj = new \stdClass;
+			foreach ($_GET as $key => $value) {
+				$obj->get->$key = $value;
+			}
+			foreach ($_POST as $key => $value) {
+				$obj->post->$key = $value;
+			}
+			return $obj;
 		}
 
 		/**
@@ -45,20 +68,44 @@
 		{
 			$url = $this->pegaUrl();
 			$urlArray = explode('/', $url);
-
 			foreach ($this->rotas as $rota)
 			{
 				$rotaArray = explode('/', $rota[0]);
 				for($i = 2; $i < count($rotaArray); $i++){
 					if((strpos($rotaArray[$i], "{") !== false) && (count($urlArray) == count($rotaArray))){
 						$rotaArray[$i] = $urlArray[$i];
+						$param[] = $urlArray[$i];
 					}
 					$rota[0] = implode($rotaArray, '/');
 				}
 				if($url == $rota[0]){
-					echo $rota[0]. '<br>';
-					echo $rota[1]. '<br>';
+					$encontrada = true;
+					$controller = $rota[1];
+					$accao = $rota[2];
+					break;
+				}else{
+					$encontrada = false;
 				}
+			}
+			if($encontrada){
+				$controller = Container::newController($controller);
+				switch(@count($param)){
+					case 1:
+						$controller->$accao($param[0], $this->pegaRequisicao());
+						break;
+					case 2:
+						$controller->$accao($para[0], $param[1], $this->pegaRequisicao());
+						break;
+					case 3:
+						$controller->$accao($param[0], $param[1], $param[2], $this->pegaRequisicao());
+						break;
+					default:
+						$controller->$accao($this->pegaRequisicao());
+				}
+			}else{
+				$controller = Container::newController('ErroController');
+				$accao = "erro_404";
+				$controller->$accao($this->pegaRequisicao());
 			}
 		}
 	}
