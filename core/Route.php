@@ -1,5 +1,9 @@
 <?php
 	
+	/**
+	 * @author Lukau Garcia <lukau.dev@gmail.com>
+	 */
+	
 	namespace Core;
 
 	Class Route
@@ -8,7 +12,6 @@
 
 		/**
 		 * Metódo construtor
-		 * @author Lukau Garcia <lukau.dev@gmail.com>
 		 * @return $rotas
 		 */
 		public function __construct(array $rotas)
@@ -19,7 +22,6 @@
 
 		/**
 		 * Metódo que altera recontroi a url
-		 * @author Lukau Garcia <lukau.dev@gmail.com>
 		 * @return
 		 */
 		private function altRota($rotas)
@@ -34,7 +36,6 @@
 
 		/**
 		 * Metódo que pega as requisições get que são envidas para o controller
-		 * @author Lukau Garcia <lukau.dev@gmail.com>
 		 * @return
 		 */
 		private function pegaRequisicao(){
@@ -50,7 +51,6 @@
 
 		/**
 		 * Metódo que pega a url digitada pelo utilizador
-		 * @author Lukau Garcia <lukau.dev@gmail.com>
 		 * @return $url
 		 */
 		private function pegaUrl()
@@ -61,7 +61,6 @@
 
 		/**
 		 * Metódo que permite executar o projecto
-		 * @author Lukau Garcia <lukau.dev@gmail.com>
 		 * @return
 		 */
 		private function correr()
@@ -71,6 +70,7 @@
 			foreach ($this->rotas as $rota)
 			{
 				$rotaArray = explode('/', $rota[0]);
+				$param = [];
 				for($i = 2; $i < count($rotaArray); $i++){
 					if((strpos($rotaArray[$i], "{") !== false) && (count($urlArray) == count($rotaArray))){
 						$rotaArray[$i] = $urlArray[$i];
@@ -89,7 +89,7 @@
 			}
 			if($encontrada){
 				$controller = Container::newController($controller);
-				switch(@count($param)){
+				switch(count($param)){
 					case 1:
 						$controller->$accao($param[0], $this->pegaRequisicao());
 						break;
@@ -101,6 +101,7 @@
 						break;
 					default:
 						$controller->$accao($this->pegaRequisicao());
+						break;
 				}
 			}else{
 				$controller = Container::newController('ErroController');

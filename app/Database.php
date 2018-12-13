@@ -1,10 +1,14 @@
 <?php
 	
+	/**
+	 * @author Lukau Garcia <lukau.dev@gmail.com>
+	 */
+	
 	return [
 		/**
-		* Opções (mysql, sqlite)
+		* Conexão com bancos
 		**/
-		'driver' => 'sqlite',
+		'driver' => 'mysql',
 
 		'sqlite' => [
 			'host' => 'database.db'
@@ -12,8 +16,8 @@
 
 		'mysql' => [
 			'host' => 'localhost',
-			'database' => '',
-			'user' => '',
+			'database' => 'reino',
+			'user' => 'root',
 			'pass' => '',
 			'charset' => 'utf8',
 			'collation' => 'utf8_unicode_ci'

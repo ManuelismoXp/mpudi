@@ -1,25 +1,30 @@
 <?php
-
+	
+	/**
+	 * @author Lukau Garcia <lukau.dev@gmail.com>
+	 */
+	
 	namespace Core;
+
 	use PDO;
 	use PDOException;
 
 	class Database
 	{
-		public function pegaBaseDados(){
+		public static function pegaBaseDados(){
 			$conf = include_once __DIR__ . "/../app/database.php";
-			if($conf['drive'] == 'sqlite'){
+			if($conf['driver'] == 'sqlite'){
 				$sqlite = __DIR__ . "/../storage/database/".$conf['sqlite']['host'];
 				$sqlite = "sqlite:".$sqlite;
 				try{
 					$pdo = new PDO($sqlite);
 					$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 					$pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
-					return $pdo:
+					return $pdo;
 				}catch(PDO_EXCEPTION $e){
 					echo $e->getMessage();
 				}
-			}elseif($conf['drive'] == 'mysql'){
+			}elseif($conf['driver'] == 'mysql'){
 				$host = $conf['mysql']['host'];
 				$database = $conf['mysql']['database'];
 				$user = $conf['mysql']['user'];
@@ -27,14 +32,14 @@
 				$charset = $conf['mysql']['charset'];
 				$collation = $conf['mysql']['collation'];
 				try{
-					$pdo = new PDO("mysql:host=$host; dname=$database;charset=$charset", $user, $pass);
+					$pdo = new PDO("mysql:dbname=$database;host=$host;charset=$charset", $user, $pass);
 					$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-					$pdo->setAttribute(PDO::MYSQL_ATTR_INIT_COMMAND, PDO::ERRMODE_EXCEPTION, "SET MAMES '$charset" COLATES 'acollation');
+					$pdo->setAttribute(PDO::MYSQL_ATTR_INIT_COMMAND, "SET NAMES '$charset' COLLATE '$collation'");
 					$pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
-					return $pdo:
-				}
-			}catch(PDO_EXCEPTION $e){
+					return $pdo;
+				}catch(PDO_EXCEPTION $e){
 					echo $e->getMessage();
 				}
+			}
 		}
 	}

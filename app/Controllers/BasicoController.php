@@ -1,7 +1,11 @@
 <?php
 	
 	namespace App\Controllers;
+
+	use Core\Models\Classe;
 	use Core\Controller;
+	use Core\Database;
+	use Core\Container;
 
 	class BasicoController extends Controller
 	{
