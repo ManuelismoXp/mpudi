@@ -5,5 +5,6 @@
 	 */
 
 	$rotas[] = ['/', 'BasicoController@index'];
+	$rotas[] = ['/proibido', 'ErroController@proibido'];
 
 	return $rotas;

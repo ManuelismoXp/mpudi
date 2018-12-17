@@ -5,19 +5,17 @@
 	 */
 	
 	return [
-		/**
-		* Conexão com bancos
-		**/
+		/* Conexão com bancos */
 		'driver' => 'mysql',
 
 		'sqlite' => [
-			'host' => 'database.db'
+			'database' => ''
 		],
 
 		'mysql' => [
 			'host' => 'localhost',
-			'database' => 'reino',
-			'user' => 'root',
+			'database' => '',
+			'user' => '',
 			'pass' => '',
 			'charset' => 'utf8',
 			'collation' => 'utf8_unicode_ci'

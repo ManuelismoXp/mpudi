@@ -15,4 +15,10 @@
 			$this->view->titulo = "Erro 404 - Página Não encontrada";
 			$this->rederizarVisao('erros/404', 'layout');
 		}
+
+		public function proibido()
+		{
+			$this->view->titulo = "Proibido - Falta de Permissão";
+			$this->rederizarVisao('erros/proibido', 'layout');
+		}
 	}

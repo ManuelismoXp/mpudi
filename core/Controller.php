@@ -76,6 +76,14 @@
 		}
 
 		/**
+		 * Metódo que rederiza o utilizador para uma página quando acessa uma URl não permitida
+		 * @return URl
+		 */
+		protected function proibido(){
+			return Redirect::rota('/proibido');
+		}
+
+		/**
 		 * Metódo para alterar o titulo do projecto
 		 * @param  string $tituloPagina
 		 * @return
