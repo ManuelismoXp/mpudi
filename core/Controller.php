@@ -9,12 +9,27 @@
 	abstract class Controller
 	{
 		protected $view;
+		protected $erros;
+		protected $inputs;
+		protected $sucesso;
 		private $caminhoVisao;
 		private $caminhoLayout;
 		private $tituloPagina;
 
 		public function __construct(){
 			$this->view = new \stdClass;
+			if(Sessao::pegaSessao('erros')){
+				$this->erros = Sessao::pegaSessao('erros');
+				Sessao::destruirSessao('erros');
+			}
+			if(Sessao::pegaSessao('imputs')){
+				$this->imputs = Sessao::pegaSessao('imputs');
+				Sessao::destruirSessao('imputs');
+			}
+			if(Sessao::pegaSessao('sucesso')){
+				$this->sucesso = Sessao::pegaSessao('sucesso');
+				Sessao::destruirSessao('sucesso');
+			}
 		}
 
 		/**

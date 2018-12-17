@@ -6,7 +6,7 @@
 	
 	namespace Core;
 
-	class Session
+	class Sessao
 	{
 		/**
 		 * Metódo que permite criar uma sessão
@@ -24,7 +24,7 @@
 		 * @return string, boolean
 		 */
 		public static function pegaSessao($chave){
-			if($_SESSION[$chave])
+			if(@$_SESSION[$chave])
 				return $_SESSION[$chave];
 			return false;
 		}

@@ -19,6 +19,6 @@
 					Session::criar($chave, $valor);
 				}
 			}
-			return header("location:$url");
+			return header("location: $url");
 		}
 	}

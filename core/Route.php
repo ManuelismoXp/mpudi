@@ -12,7 +12,8 @@
 
 		/**
 		 * Metódo construtor
-		 * @return $rotas
+		 *@param array $rotas
+		 * @return
 		 */
 		public function __construct(array $rotas)
 		{
