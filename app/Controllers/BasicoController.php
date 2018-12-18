@@ -19,4 +19,9 @@
 			$this->view->titulo = "Bem-vindo ao MpuDi";
 			$this->rederizarVisao('index', 'layout');
 		}
+
+		public function teste()
+		{
+			print_r('Ola');
+		}
 	}
