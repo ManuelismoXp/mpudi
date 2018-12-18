@@ -5,7 +5,7 @@ Framework php - Utiliza o modelo de desenvolvimento arquitetural MVC
     author Lukau Manuel João Garcia <lukau.dev@gmail.com>
     source https://github.com/ManuelismoXp/mpudi
     
-                             copyright&copy;2018 Lukau Garcia
+                             copyright 2018 Lukau Garcia
     
     
 # IMPORTANTE
