@@ -1,9 +1,6 @@
 # mpudi
 Framework php - Utiliza o modelo de desenvolvimento arquitetural MVC
     
-    <ul>
-    <li>Ola</li>
-    </ul>
     category Framework
     author Lukau Manuel João Garcia <lukau.dev@gmail.com>
     copyright 2018 Lukau Garcia
