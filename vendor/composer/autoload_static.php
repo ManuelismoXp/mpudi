@@ -9,6 +9,8 @@ class ComposerStaticInit9805e489357d655c6eeb36c2b9f6685f
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '72579e7bd17821bb1321b87411366eae' => __DIR__ . '/..' . '/illuminate/support/helpers.php',
+        '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
+        'ad155f8f1cf0d418fe49e248db8c661b' => __DIR__ . '/..' . '/react/promise/src/functions_include.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -18,10 +20,21 @@ class ComposerStaticInit9805e489357d655c6eeb36c2b9f6685f
             'Symfony\\Contracts\\' => 18,
             'Symfony\\Component\\Translation\\' => 30,
         ),
+        'R' => 
+        array (
+            'React\\Stream\\' => 13,
+            'React\\Promise\\' => 14,
+            'React\\EventLoop\\' => 16,
+        ),
         'P' => 
         array (
             'Psr\\SimpleCache\\' => 16,
+            'Psr\\Log\\' => 8,
             'Psr\\Container\\' => 14,
+        ),
+        'M' => 
+        array (
+            'Mpdf\\' => 5,
         ),
         'I' => 
         array (
@@ -33,6 +46,7 @@ class ComposerStaticInit9805e489357d655c6eeb36c2b9f6685f
         'D' => 
         array (
             'Doctrine\\Common\\Inflector\\' => 26,
+            'DeepCopy\\' => 9,
         ),
         'C' => 
         array (
@@ -57,13 +71,33 @@ class ComposerStaticInit9805e489357d655c6eeb36c2b9f6685f
         array (
             0 => __DIR__ . '/..' . '/symfony/translation',
         ),
+        'React\\Stream\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/react/stream/src',
+        ),
+        'React\\Promise\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/react/promise/src',
+        ),
+        'React\\EventLoop\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/react/event-loop/src',
+        ),
         'Psr\\SimpleCache\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/simple-cache/src',
         ),
+        'Psr\\Log\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
+        ),
         'Psr\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
+        ),
+        'Mpdf\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/mpdf/mpdf/src',
         ),
         'Illuminate\\Support\\' => 
         array (
@@ -85,6 +119,10 @@ class ComposerStaticInit9805e489357d655c6eeb36c2b9f6685f
         array (
             0 => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Common/Inflector',
         ),
+        'DeepCopy\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
+        ),
         'Core\\' => 
         array (
             0 => __DIR__ . '/../..' . '/core',
@@ -99,12 +137,34 @@ class ComposerStaticInit9805e489357d655c6eeb36c2b9f6685f
         0 => __DIR__ . '/..' . '/nesbot/carbon/src',
     );
 
+    public static $prefixesPsr0 = array (
+        'E' => 
+        array (
+            'Evenement' => 
+            array (
+                0 => __DIR__ . '/..' . '/evenement/evenement/src',
+            ),
+        ),
+    );
+
+    public static $classMap = array (
+        'FPDF_TPL' => __DIR__ . '/..' . '/setasign/fpdi/fpdf_tpl.php',
+        'FPDI' => __DIR__ . '/..' . '/setasign/fpdi/fpdi.php',
+        'FilterASCII85' => __DIR__ . '/..' . '/setasign/fpdi/filters/FilterASCII85.php',
+        'FilterASCIIHexDecode' => __DIR__ . '/..' . '/setasign/fpdi/filters/FilterASCIIHexDecode.php',
+        'FilterLZW' => __DIR__ . '/..' . '/setasign/fpdi/filters/FilterLZW.php',
+        'fpdi_pdf_parser' => __DIR__ . '/..' . '/setasign/fpdi/fpdi_pdf_parser.php',
+        'pdf_context' => __DIR__ . '/..' . '/setasign/fpdi/pdf_context.php',
+    );
+
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit9805e489357d655c6eeb36c2b9f6685f::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit9805e489357d655c6eeb36c2b9f6685f::$prefixDirsPsr4;
             $loader->fallbackDirsPsr4 = ComposerStaticInit9805e489357d655c6eeb36c2b9f6685f::$fallbackDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit9805e489357d655c6eeb36c2b9f6685f::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit9805e489357d655c6eeb36c2b9f6685f::$classMap;
 
         }, null, ClassLoader::class);
     }

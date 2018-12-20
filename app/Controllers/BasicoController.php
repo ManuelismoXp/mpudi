@@ -6,6 +6,7 @@
 	use Core\Controller;
 	use Core\Database;
 	use Core\Container;
+	use \Mpdf\Mpdf;
 
 	class BasicoController extends Controller
 	{
@@ -20,8 +21,4 @@
 			$this->rederizarVisao('index', 'layout');
 		}
 
-		public function teste()
-		{
-			print_r('Ola');
-		}
 	}
