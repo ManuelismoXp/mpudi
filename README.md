@@ -1,4 +1,4 @@
-# Mpudi
+# Mpudi :angola:
 
 Mpudi é um micro framework, desenvolvido usando a linguagem PHP. Usando o padrão [MVC](https://pt.wikipedia.org/wiki/MVC), o principal foco deste projecto, é permitir que iniciantes em programação e não só, entendam como funciona na prática o MVC em projecto de software do mundo real.
 
