@@ -1,14 +1,38 @@
-# mpudi
-Framework php - Utiliza o modelo de desenvolvimento arquitetural MVC
-    
-    category Framework
-    author Lukau Manuel João Garcia <lukau.dev@gmail.com>
-    source https://github.com/ManuelismoXp/mpudi
-    
-                             copyright 2018 Lukau Garcia
-    
-    
-# IMPORTANTE
-As novas versões desta framework estarão disponível neste mesmo link
-https://github.com/ManuelismoXp/mpudi, pelo que, pedimos que visite sempre
-o site para saber se existe uma nova versão.
+# Mpudi :angola:
+
+Mpudi é um micro framework, desenvolvido usando a linguagem PHP. Usando o padrão [MVC](https://pt.wikipedia.org/wiki/MVC), o principal foco deste projecto, é permitir que iniciantes em programação e não só, entendam como funciona na prática o MVC em projecto de software do mundo real.
+
+### Instalação
+
+ Faça o clone do repositório para sua máquina:
+  ```git
+  git clone https://github.com/ManuelismoXp/mpudi.git
+  ```
+* Entre no directório do projecto
+  ```bash
+  cd mpudi
+  ```
+* Instale as dependẽncias:
+  ```bash
+  composer install
+  ```
+  
+## Tecnologias utilizadas
+
+* [PHP](http://php.net/manual/pt_BR/) - Linguagem de script de propósito geral
+* [Eloquent](https://laravel-docs-pt-br.readthedocs.io/en/latest/eloquent/) - Simples implementação ActiveRecord para trabalhar com o banco de dados
+* [Composer](https://getcomposer.org/) - Gerenciador de pacotes
+
+## Contribuições
+
+Por favor, leia [CONTRIBUTING.md](https://github.com/ManuelismoXp/mpudi/CONTRIBUTING.md)
+## Authors
+
+* **Lukau Manuel João Garcia** - *Initial work*
+
+Outros [contrubuidores](https://github.com/ManuelismoXp/mpudi/contributors).
+
+## License
+
+Este projeto está licenciado sob a licença MIT - Acesse [LICENSE.md](LICENSE.md) para mais detalhes
+
